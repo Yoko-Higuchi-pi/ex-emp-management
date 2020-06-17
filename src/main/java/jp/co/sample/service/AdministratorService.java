@@ -21,7 +21,8 @@ public class AdministratorService {
 	private AdministratorRepository administratorRepository;
 	
 	/**
-	 * Repository クラスの insert を返す.
+	 * 管理者情報を登録する.
+	 * 
 	 * @param administrator 登録情報
 	 */
 	public void insert(Administrator administrator) {
@@ -29,7 +30,7 @@ public class AdministratorService {
 	}
 	
 	/**
-	 * Repository クラスのログイン時に記入した内容が入っているかどうかを返す.
+	 * メールアドレスとパスワードから管理者情報を抽出する.
 	 * 
 	 * @param mailAddress 入力されたメールアドレス
 	 * @param password 入力されたパスワード

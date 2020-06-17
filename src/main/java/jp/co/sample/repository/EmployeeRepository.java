@@ -1,6 +1,5 @@
 package jp.co.sample.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,26 +46,23 @@ public class EmployeeRepository {
 	
 	/**
 	 * 全検索を行う.
-	 * @return 全件のリスト
+	 * 
+	 * @return 従業員一覧
 	 */
 	public List<Employee> findAll() {
-		List<Employee> employeeList = new ArrayList<>();
 		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count FROM employees ORDER BY hire_date;";
-		try {
-			employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
-			return employeeList;			
-		} catch (Exception e) {
-			return null;
-		}
+		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
+		return employeeList;	
 	}
 	
 	/**
-	 * id をもとにDB検索を行う.
+	 * 主キー検索を行う.
+	 * 
 	 * @param id 検索したい主キー(id)
-	 * @return 検索結果
+	 * @return 従業員情報
 	 */
 	public Employee load(Integer id) {
-		Employee employee = new Employee();
+		Employee employee = null;
 		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count FROM employees WHERE id = :id;";
 		
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);

@@ -52,12 +52,13 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * ログインを行う HTMLを返す.
+	 * ログイン画面を表示する.
+	 * 
 	 * @return ログイン画面
 	 */
 	@RequestMapping("")
 	public String toLogin(Model model) {
-		return "administrator/login.html";
+		return "administrator/login";
 	}
 	
 	
@@ -72,9 +73,10 @@ public class AdministratorController {
 	
 
 	/**
-	 * ログイン画面に遷移する.
+	 * 管理者情報を登録する.
+	 * 
 	 * @param form 入力情報
-	 * @return ルートに遷移
+	 * @return ログイン画面
 	 */
 	@RequestMapping("/insert")
 	public String insert(InsertAdministratorForm form) {
@@ -88,6 +90,7 @@ public class AdministratorController {
 	
 	/**
 	 * ログインチェックを行う.
+	 * 
 	 * @param form 入力情報
 	 * @param model リクエストスコープ
 	 * @return エラー時:ログイン画面へのリダイレクト, 成功時:リスト一覧表示画面
@@ -97,6 +100,7 @@ public class AdministratorController {
 		Administrator administrator = new Administrator();
 		
 		administrator = administratorService.login(form.getMailAddress(), form.getPassword());
+		System.out.println(administrator);
 		if (administrator == null) {
 			model.addAttribute("error", "メールアドレスまたはパスワードが不正です");
 			return toLogin(model);

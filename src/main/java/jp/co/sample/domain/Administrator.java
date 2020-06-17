@@ -1,16 +1,20 @@
 package jp.co.sample.domain;
 
 /**
- * 管理者情報を表すドメインクラス
+ * 管理者情報を表すドメインクラス.
  * administrators テーブルに対応
  * 
  * @author yoko.higuchi
  *
  */
 public class Administrator {
+	/** ID(主キー) */
 	private Integer id;
+	/** 名前 */
 	private String name;
+	/** メールアドレス */
 	private String mailAddress;
+	/** パスワード */
 	private String password;
 	
 	public Administrator() {}
