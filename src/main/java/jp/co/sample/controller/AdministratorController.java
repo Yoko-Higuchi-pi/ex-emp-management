@@ -1,59 +1,43 @@
 package jp.co.sample.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import jp.co.sample.form.InsertAdministratorForm;
+import jp.co.sample.service.AdministratorService;
+
+
 /**
- * 管理者　関連機能の処理の制御を行うコントローラ
+ * 管理者　関連機能の処理の制御を行うコントローラ.
  * 
  * @author yoko.higuchi
  *
  */
+
+@Controller
+@RequestMapping("/")
 public class AdministratorController {
-	private Integer id;
-	private String name;
-	private String mailAddress;
-	private String password;
+	/** service クラスから参照情報を注入 */
+	@Autowired
+	private AdministratorService administratorService;
 	
-	public AdministratorController() {}
-	
-	public AdministratorController(Integer id, String name, String mailAddress, String password) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.mailAddress = mailAddress;
-		this.password = password;
-	}
-
-
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getMailAddress() {
-		return mailAddress;
-	}
-	public void setMailAddress(String mailAddress) {
-		this.mailAddress = mailAddress;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
-	@Override
-	public String toString() {
-		return "AdministratorController [id=" + id + ", name=" + name + ", mailAddress=" + mailAddress + ", password="
-				+ password + "]";
+	/**
+	 * form のインスタンス化 (Model で利用可能にする)
+	 * @return インスタンス
+	 */
+	@ModelAttribute
+	public InsertAdministratorForm setUpInsertAdministratorForm() {
+		return new InsertAdministratorForm();
 	}
 	
-	
+	/**
+	 * insert を行う HTML を返す
+	 * @return insert を行う
+	 */
+	@RequestMapping("/toInsert")
+	public String toInsert() {
+		return "administrator/insert";
+	}
 }
