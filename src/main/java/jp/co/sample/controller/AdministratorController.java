@@ -24,7 +24,7 @@ public class AdministratorController {
 	private AdministratorService administratorService;
 	
 	/**
-	 * form のインスタンス化 (Model で利用可能にする)
+	 * form のインスタンス化 (Model で利用可能にする).
 	 * @return インスタンス
 	 */
 	@ModelAttribute
@@ -33,7 +33,7 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * insert を行う HTML を返す
+	 * insert を行う HTML を返す.
 	 * @return insert を行う
 	 */
 	@RequestMapping("/toInsert")

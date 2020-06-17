@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Employee;
 
 /**
- * employees テーブル操作を行うリポジトリ
+ * employees テーブル操作を行うリポジトリ.
  * 
  * @author yoko.higuchi
  *
@@ -46,7 +46,7 @@ public class EmployeeRepository {
 	private NamedParameterJdbcTemplate template;
 	
 	/**
-	 * 全検索を行う
+	 * 全検索を行う.
 	 * @return 全件のリスト
 	 */
 	public List<Employee> findAll() {
@@ -61,7 +61,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * id をもとにDB検索を行う
+	 * id をもとにDB検索を行う.
 	 * @param id 検索したい主キー(id)
 	 * @return 検索結果
 	 */
@@ -79,7 +79,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * id に該当するデータを更新
+	 * id に該当するデータを更新.
 	 * @param employee 更新するデータの情報
 	 */
 	public void update(Employee employee) {
