@@ -1,19 +1,22 @@
 package jp.co.sample.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.stereotype.Repository;
 
 import jp.co.sample.domain.Administrator;
 
 /**
- * administrators テーブル操作を行うリポジトリ
+ * administrators テーブル操作を行うリポジトリ.
  * 
  * @author yoko.higuchi
  *
  */
+@Repository
 public class AdministratorRepository {
 	/** administrators の RowMapper */
 	private static final RowMapper<Administrator> ADMI_ROW_MAPPER = (rs, i) -> {
@@ -27,10 +30,11 @@ public class AdministratorRepository {
 	};
 	
 	/** SQL実行を行う */
+	@Autowired
 	NamedParameterJdbcTemplate template;
 	
 	/**
-	 * INSERT 実行を行う
+	 * INSERT 実行を行う.
 	 * 
 	 * @param administrator 挿入するデータ
 	 */
@@ -42,7 +46,7 @@ public class AdministratorRepository {
 	}
 	
 	/**
-	 * mail_address, password から該当するデータを抽出する
+	 * mail_address, password から該当するデータを抽出する.
 	 * 
 	 * @param mailAddress 検索したいメールアドレス
 	 * @param password 検索したいパスワード

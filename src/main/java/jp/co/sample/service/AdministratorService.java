@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import jp.co.sample.repository.AdministratorRepository;
 
 /**
- * 管理者関連の業務処理を行うサービス
+ * 管理者関連の業務処理を行うサービス.
  * 
  * @author yoko.higuchi
  *
