@@ -1,7 +1,7 @@
 package jp.co.sample.form;
 
 /**
- * ログイン時に使用するフォーム.
+ * ログイン時に入力したデータを格納するフォーム.
  * 
  * @author yoko.higuchi
  *
