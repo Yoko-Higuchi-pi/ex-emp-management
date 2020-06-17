@@ -15,7 +15,7 @@ import jp.co.sample.repository.AdministratorRepository;
 
 @Service
 @Transactional
-public class AdminstratorService {
+public class AdministratorService {
 	@Autowired
 	private AdministratorRepository administratorRepository;
 	
