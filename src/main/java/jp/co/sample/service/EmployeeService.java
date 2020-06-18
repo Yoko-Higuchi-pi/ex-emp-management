@@ -3,6 +3,7 @@ package jp.co.sample.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,5 +28,15 @@ public class EmployeeService {
 	 */
 	public List<Employee> showList() {
 		return employeeRepository.findAll();
+	}
+	
+	/**
+	 * 従業員情報を取得
+	 * 
+	 * @param id 検索する主キー(ID)
+	 * @return 従業員情報
+	 */
+	public Employee ShowDetail(Integer id) {
+		return employeeRepository.load(id);
 	}
 }
