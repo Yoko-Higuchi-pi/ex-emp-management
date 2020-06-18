@@ -9,7 +9,7 @@ package jp.co.sample.form;
 public class UpdateEmployeeForm {
 	/** ID(主キー) */
 	private String id;
-	/** 顧客数 */
+	/** 扶養人数 */
 	private String dependentsCount;
 	
 	public String getId() {
