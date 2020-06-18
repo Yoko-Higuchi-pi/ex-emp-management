@@ -44,8 +44,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/showList")
 	public String shorList(Model model) {
-		List<Employee> employeeList = new ArrayList<>();
-		employeeList = employeeService.showList();
+		List<Employee> employeeList = employeeService.showList();
 		
 		model.addAttribute("employeeList", employeeList);
 		
@@ -61,7 +60,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/showDetail")
 	public String showDetail(String id, Model model) {
-		Employee employee = employeeService.ShowDetail(Integer.parseInt(id));
+		Employee employee = employeeService.showDetail(Integer.parseInt(id));
 
 		model.addAttribute("employee", employee);
 		
@@ -76,7 +75,7 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/update")
 	public String update(UpdateEmployeeForm form) {
-		Employee employee = employeeService.ShowDetail(Integer.parseInt(form.getId()));
+		Employee employee = employeeService.showDetail(Integer.parseInt(form.getId()));
 		
 		// 主キー検索した結果、データが存在する場合は更新する
 		if (employee != null) {

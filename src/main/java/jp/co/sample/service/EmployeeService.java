@@ -23,7 +23,8 @@ public class EmployeeService {
 	private EmployeeRepository employeeRepository;
 	
 	/**
-	 * Repository クラスの従業員の全データを返す.
+	 * 従業員一覧情報を取得.
+	 * 
 	 * @return employees の登録情報 (一覧)
 	 */
 	public List<Employee> showList() {
@@ -36,7 +37,7 @@ public class EmployeeService {
 	 * @param id 検索する主キー(ID)
 	 * @return 従業員情報
 	 */
-	public Employee ShowDetail(Integer id) {
+	public Employee showDetail(Integer id) {
 		return employeeRepository.load(id);
 	}
 	
