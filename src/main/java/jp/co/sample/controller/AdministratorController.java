@@ -111,4 +111,16 @@ public class AdministratorController {
 		}
 		
 	}
+	
+	/**
+	 * セッション情報を削除し、ログアウトする.
+	 * 
+	 * @return ログイン画面
+	 */
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 }
